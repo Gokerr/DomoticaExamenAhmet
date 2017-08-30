@@ -9,6 +9,7 @@ import domotica.view.*;
 
 public class Test {
 	
+	private static Command command;
 	private static Random random = new Random();
 
 	private static int randomInt(int lo, int hi) {
@@ -56,17 +57,21 @@ public class Test {
 	}
 	
 	public static void openDoors(DomoticaObject object) {
-
+		setAllDoorsOpen opendoor = new setAllDoorsOpen(object);
+		openDoor.execute();
+		command = openDoor;
 		object.update();
 	}
 	
 	public static void closeDoors(DomoticaObject object) {
-
+		setAllDoorsClosed closedoor = new setAllDoorsClosed(object);
+		closedoor.execute();
+		command = closedoor;
 		object.update();
 	}
 	
 	public static void undoCommand(DomoticaObject object) {
-
+		command.undo();
 		object.update();
 	}
 
