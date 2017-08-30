@@ -58,8 +58,8 @@ public class Test {
 	
 	public static void openDoors(DomoticaObject object) {
 		setAllDoorsOpen opendoor = new setAllDoorsOpen(object);
-		openDoor.execute();
-		command = openDoor;
+		opendoor.execute();
+		command = opendoor;
 		object.update();
 	}
 	
